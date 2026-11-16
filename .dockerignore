@@ -1,0 +1,9 @@
+.git
+.env*
+backups
+restored
+evidence
+tests
+*.pdf
+*.docx
+__pycache__

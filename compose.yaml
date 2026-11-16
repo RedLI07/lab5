@@ -1,0 +1,31 @@
+name: practice5-v19
+services:
+  disk:
+    build: .
+    image: local/practice5-disk:v1.0.0
+    pull_policy: never
+    environment:
+      PORT: "8000"
+      APP_VERSION: v1.0.0
+      MESSAGE: "Disk service / variant 9"
+    ports:
+      - "127.0.0.1:${APP_PORT:-8219}:8000"
+    volumes:
+      - disk-data:/data
+    mem_limit: ${MEMORY_LIMIT:-128m}
+    memswap_limit: ${MEMORY_LIMIT:-128m}
+    cpus: ${CPU_LIMIT:-0.5}
+    pids_limit: 64
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=8m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+volumes:
+  disk-data:

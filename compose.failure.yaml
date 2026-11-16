@@ -1,0 +1,6 @@
+# Учебный отказ только проекта practice5-v19. Без swap и без цикла перезапуска.
+services:
+  disk:
+    mem_limit: 6m
+    memswap_limit: 6m
+    restart: "no"

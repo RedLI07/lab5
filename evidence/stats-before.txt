@@ -1,0 +1,2 @@
+CONTAINER ID   NAME                   CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O         PIDS
+6e8f1d84d075   practice5-v19-disk-1   0.02%     13.43MiB / 128MiB   10.49%    2.8kB / 2.07kB   69.6kB / 8.19kB   1

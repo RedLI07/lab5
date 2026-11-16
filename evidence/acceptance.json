@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Лимиты памяти, swap и CPU",
+    "passed": true
+  },
+  {
+    "name": "Health и версия",
+    "passed": true
+  },
+  {
+    "name": "Основная функция под лимитом",
+    "passed": true,
+    "response": {
+      "message": "Disk service / variant 9",
+      "version": "v1.0.0",
+      "path": "/data",
+      "free_gb": 190.54,
+      "total_gb": 223.63,
+      "requests": 2
+    }
+  },
+  {
+    "name": "Негативный маршрут",
+    "passed": true
+  },
+  {
+    "name": "Непривилегированный процесс",
+    "passed": true
+  },
+  {
+    "name": "Восстановление в отдельный каталог",
+    "passed": true,
+    "sha256": "585f609af1528fa9d79181c7920d7821040d8be8b8a90d133990d593d341823b"
+  },
+  {
+    "name": "Данные после перезапуска",
+    "passed": true
+  },
+  {
+    "name": "Отказ при 6 MiB обнаружен",
+    "passed": true,
+    "state": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": true,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 137,
+      "Error": "",
+      "StartedAt": "2026-11-16T18:00:01.137287048Z",
+      "FinishedAt": "2026-11-16T18:00:01.195067756Z",
+      "Health": {
+        "Status": "unhealthy",
+        "FailingStreak": 0,
+        "Log": []
+      }
+    }
+  },
+  {
+    "name": "Откат к предыдущему лимиту 96 MiB",
+    "passed": true
+  },
+  {
+    "name": "Данные после отказа",
+    "passed": true
+  },
+  {
+    "name": "Итоговый запуск 128 MiB healthy",
+    "passed": true
+  }
+]

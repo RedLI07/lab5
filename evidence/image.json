@@ -1,0 +1,9 @@
+{
+  "Id": "sha256:a1d2215c4e91de05f47c27f71b685b03cc3ad09fd6b5a3bd7a48072b56f81356",
+  "RepoTags": [
+    "local/practice5-disk:v1.0.0"
+  ],
+  "Architecture": "arm64",
+  "Os": "linux",
+  "Created": "2026-11-16T17:59:38.245060801Z"
+}
