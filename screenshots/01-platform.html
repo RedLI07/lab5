@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>1. Паспорт среды</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Фактическая конфигурация Linux Docker Engine</p><p>Снимок: 2026-11-16T21:31:01+03:00</p></header><pre>$ docker info --format OS={{.OperatingSystem}}
+Architecture={{.Architecture}}
+Kernel={{.KernelVersion}}
+CPU={{.NCPU}}
+RAM(bytes)={{.MemTotal}}
+OS=
+Architecture=
+Kernel=
+CPU=0
+RAM(bytes)=0
+permission denied while trying to connect to the docker API at 
+unix:///Users/maxim/.docker/run/docker.sock
+
+Код возврата: 1
+$ docker compose --env-file env.example exec -T disk id
+permission denied while trying to connect to the Docker daemon socket at 
+unix:///Users/maxim/.docker/run/docker.sock: Get &quot;http://%2FUsers%2Fmaxim%2F.docker%2Frun%2Fdocker.sock/v
+1.51/containers/json?filters=%7B%22label%22%3A%7B%22com.docker.compose.config-hash%22%3Atrue%2C%22com.doc
+ker.compose.project%3Dpractice5-v19%22%3Atrue%2C%22com.docker.compose.service%3Ddisk%22%3Atrue%7D%7D&quot;: 
+dial unix /Users/maxim/.docker/run/docker.sock: connect: operation not permitted
+
+Код возврата: 1</pre>

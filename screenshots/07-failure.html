@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>5. Зафиксированный отказ при 6 MiB</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Состояние из выполненного эксперимента; evidence/failure-state.json</p><p>Снимок: 2026-11-16T21:30:22+03:00</p></header><pre>$ cat evidence/failure-state.json
+{
+  &quot;Status&quot;: &quot;exited&quot;,
+  &quot;Running&quot;: false,
+  &quot;Paused&quot;: false,
+  &quot;Restarting&quot;: false,
+  &quot;OOMKilled&quot;: true,
+  &quot;Dead&quot;: false,
+  &quot;Pid&quot;: 0,
+  &quot;ExitCode&quot;: 137,
+  &quot;Error&quot;: &quot;&quot;,
+  &quot;StartedAt&quot;: &quot;2026-11-16T18:00:01.137287048Z&quot;,
+  &quot;FinishedAt&quot;: &quot;2026-11-16T18:00:01.195067756Z&quot;,
+  &quot;Health&quot;: {
+    &quot;Status&quot;: &quot;unhealthy&quot;,
+    &quot;FailingStreak&quot;: 0,
+    &quot;Log&quot;: []
+  }
+}</pre>

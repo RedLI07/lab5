@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>4. Развернутый сервис</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Состояние контейнера и настроенные ограничения ресурсов</p><p>Снимок: 2026-11-16T21:30:22+03:00</p></header><pre>$ docker compose --env-file env.example ps --format {{.Name}} | {{.Status}} | {{.Ports}}
+practice5-v19-disk-1 | Up 30 minutes (healthy) | 127.0.0.1:8219-&gt;8000/tcp
+
+Код возврата: 0
+$ docker inspect practice5-v19-disk-1 --format Memory={{.HostConfig.Memory}}; 
+MemorySwap={{.HostConfig.MemorySwap}}; NanoCpus={{.HostConfig.NanoCpus}}; User={{.Config.User}}
+Memory=134217728; MemorySwap=134217728; NanoCpus=500000000; User=app
+
+Код возврата: 0</pre>

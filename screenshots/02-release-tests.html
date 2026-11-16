@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>2. Выпуск и автоматические тесты</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Текущая ветка, аннотированная метка и повторный запуск тестов</p><p>Снимок: 2026-11-16T21:30:22+03:00</p></header><pre>$ git branch --show-current
+release
+
+Код возврата: 0
+$ git cat-file -t v1.0.0
+tag
+
+Код возврата: 0
+$ git log -1 --format=%h %s v1.0.0
+c914e46 Complete practice 5 variant 9: limited deployment, recovery and report
+
+Код возврата: 0
+$ python3 -m unittest discover -s tests -v
+test_corrupt_state_is_not_overwritten (test_app.ServiceTests.test_corrupt_state_is_not_overwritten) ... 
+ok
+test_disk_function (test_app.ServiceTests.test_disk_function) ... ok
+test_health_does_not_change_counter (test_app.ServiceTests.test_health_does_not_change_counter) ... ok
+test_missing_route (test_app.ServiceTests.test_missing_route) ... ok
+test_query_string (test_app.ServiceTests.test_query_string) ... ok
+test_state_survives_restart (test_app.ServiceTests.test_state_survives_restart) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.275s
+
+OK
+
+Код возврата: 0</pre>

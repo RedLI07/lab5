@@ -1,0 +1,35 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>5. Откат и текущее состояние</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Журнал восстановления и новый снимок использования ресурсов</p><p>Снимок: 2026-11-16T21:30:22+03:00</p></header><pre>2026-11-16T18:00:01.433779+00:00
+Отказ при 6 MiB обнаружен: PASS
+
+2026-11-16T18:00:07.302516+00:00
+Откат к предыдущему лимиту 96 MiB: PASS
+
+2026-11-16T18:00:07.304041+00:00
+Данные после отказа: PASS
+
+2026-11-16T18:00:14.380850+00:00
+Итоговый запуск 128 MiB healthy: PASS
+
+$ docker stats --no-stream --format {{.Name}} | CPU {{.CPUPerc}} | RAM {{.MemUsage}} | PIDs {{.PIDs}} 
+practice5-v19-disk-1
+practice5-v19-disk-1 | CPU 0.02% | RAM 14.14MiB / 128MiB | PIDs 1
+
+Код возврата: 0
+$ docker inspect practice5-v19-disk-1 --format Health={{.State.Health.Status}}; 
+Memory={{.HostConfig.Memory}}
+Health=healthy; Memory=134217728
+
+Код возврата: 0
+$ docker compose --env-file env.example logs --tail 5 --no-color disk
+disk-1  | 127.0.0.1 - - [16/Nov/2026 18:30:20] &quot;GET /health HTTP/1.1&quot; 200 -
+disk-1  | 172.20.0.1 - - [16/Nov/2026 18:30:25] &quot;GET /health HTTP/1.1&quot; 200 -
+disk-1  | 172.20.0.1 - - [16/Nov/2026 18:30:25] &quot;GET /disk HTTP/1.1&quot; 200 -
+disk-1  | 172.20.0.1 - - [16/Nov/2026 18:30:25] &quot;GET /missing HTTP/1.1&quot; 404 -
+disk-1  | 127.0.0.1 - - [16/Nov/2026 18:30:26] &quot;GET /health HTTP/1.1&quot; 200 -
+
+Код возврата: 0</pre>

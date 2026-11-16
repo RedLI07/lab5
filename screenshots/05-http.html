@@ -1,0 +1,35 @@
+<!doctype html><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;padding:30px;background:#edf1f5;color:#122335;font:17px Arial}
+header{border-left:5px solid #2463ad;padding-left:17px}h1{font-size:26px;margin:0 0 10px}
+p{margin:6px 0;color:#42566b}pre{background:white;border:1px solid #c7d2df;border-radius:6px;
+padding:20px;font:16px/21px Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+</style><header><h1>4. Функция приложения и негативная проверка</h1><p>Практическая работа № 5 · вариант 19 → 9</p><p>Ответы реального сервиса на localhost:8219</p><p>Снимок: 2026-11-16T21:30:22+03:00</p></header><pre>$ curl -sS -i http://127.0.0.1:8219/health
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.12.13
+Date: Mon, 16 Nov 2026 18:30:25 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 37
+
+{&quot;status&quot;: &quot;ok&quot;, &quot;version&quot;: &quot;v1.0.0&quot;}
+Код возврата: 0
+
+$ curl -sS -i http://127.0.0.1:8219/disk
+HTTP/1.0 200 OK
+Server: BaseHTTP/0.6 Python/3.12.13
+Date: Mon, 16 Nov 2026 18:30:25 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 131
+
+{&quot;message&quot;: &quot;Disk service / variant 9&quot;, &quot;version&quot;: &quot;v1.0.0&quot;, &quot;path&quot;: &quot;/data&quot;, &quot;free_gb&quot;: 190.54, 
+&quot;total_gb&quot;: 223.63, &quot;requests&quot;: 9}
+Код возврата: 0
+
+$ curl -sS -i http://127.0.0.1:8219/missing
+HTTP/1.0 404 Not Found
+Server: BaseHTTP/0.6 Python/3.12.13
+Date: Mon, 16 Nov 2026 18:30:25 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 38
+
+{&quot;error&quot;: &quot;Not Found&quot;, &quot;requests&quot;: 10}
+Код возврата: 0</pre>
